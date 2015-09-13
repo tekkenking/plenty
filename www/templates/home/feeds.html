@@ -1,0 +1,107 @@
+<ion-view view-title="Feeds">
+  <ion-content>
+    <ion-list>
+
+      <div class="list feeds" ng-repeat="feed in feeds">
+
+        <span class="item item-thumbnail-left" href="#">
+          <img class="list-image" ng-src={{feed.itemImage}}>
+          <h2 class="font-bold">{{feed.itemTitle}}</h2>
+
+
+          <span class="font-bold  assertive">
+            {{feed.newPrice | currency:currency:0}}
+          </span> 
+          <span class="font-xs old-price muted" ng-if="feed.newPrice < feed.oldPrice">
+            {{feed.oldPrice | currency:currency:0}}
+          </span>
+
+          <span ng-if="feed.percentage > 0" class="font-xs">
+            &nbsp; {{-feed.percentage | number:0}}%
+          </span>
+
+          <div>
+            <div class="item-location">
+              <i class="ion-location"></i> 
+              <span class="font-xs">{{feed.itemLocation}}</span>
+            </div>
+          </div>
+
+          <div class="pull-left font-xs"> 
+            <i class="ion-android-time"></i> 
+            <span am-time-ago="feed.timeAgo"></span> 
+          </div>
+
+          <a href="#" class="link pull-right font-bold feed-cart-size">
+             <i class="icon ion-android-cart"></i>
+          </a>
+        </span>
+
+       <!-- <div class="item item-dark">
+          <div class="pull-left">
+            <span class="font-bold font-md assertive">
+              {{feed.newPrice | currency:currency:0}}
+            </span> 
+            <span class="font-bol font-sm old-price stable" ng-if="feed.newPrice < feed.oldPrice">
+              {{feed.oldPrice | currency:currency:0}}
+            </span>
+
+            <span ng-if="feed.percentage > 0">
+              &nbsp; {{-feed.percentage | number:0}}%
+            </span>
+          </div>
+            
+          <div class="pull-right text-white"> 
+            <i class="ion-android-time"></i> 
+            <span am-time-ago="feed.timeAgo"></span> 
+          </div>
+        </div>
+
+        <div class="item item-body">
+          <a href="#"><img class="full-image" ng-src={{feed.itemImage}}></a>
+
+          <div class="item-text">
+
+            <div class="">
+                <button class="button button-small button-energized font-bold">
+                  Buy Now
+                </button>
+
+                <button class="button button-small button-assertive font-bold">
+                  <i class="icon ion-android-cart"></i> Add to Cart
+                </button>
+
+                <a href="#" class="pull-right link font-bold"><i class="icon ion-ios-heart"></i> Add to wish list </a>
+
+
+            </div>
+
+            <div class="item-state" ng-if="feed.itemShowState == true">
+              <span class="label label-transparent">{{feed.itemState}}</span>
+            </div>
+
+            <div class="item-title">
+              {{feed.itemTitle}}
+            </div>
+            <div class="item-location">
+              <i class="ion-location"></i> 
+              <span class="font-sm">{{feed.itemLocation}}</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="item item-avatar item-stable">
+          <img ng-src={{feed.sellerLogo}}>
+          <div class="item-text">
+            <h2 class="font-bold">{{feed.sellerName}}.</h2>
+            <div class="stale font-md display-inline">{{feed.sellerFollowers | number}} | followers</div>
+          </div>
+        </div>-->
+
+      </div>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

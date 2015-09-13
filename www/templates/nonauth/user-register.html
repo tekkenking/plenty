@@ -1,0 +1,109 @@
+<ion-view view-title="">
+  <ion-content>
+
+<div class="card">
+
+  <div class="item">
+    <div class="font-md"><i class="ion-person-add"></i> Create Account</div>
+  </div>
+
+  <div class="item item-text-wrap">
+
+
+  		<form name="registeruser" ng-submit="user.register(userform)" novalidate id="registeruser">
+			<div class="list">
+				<div class="padding">
+					<label class="item item-input">
+					    <input 	type="text"
+					    		name="firstname" 
+					    		ng-model="userform.firstname"
+					    		required
+					    		placeholder="First name">
+					</label>
+					<div class="error">{{error.firstname}}</div>
+					<!--<div class="error" ng-show="registeruser.$submitted" ng-messages="registeruser.firstname.$error" role="alert">
+						<div ng-message="minlength, maxlength">
+					      First name must be between 3 and 20 characters long
+					    </div>
+					    <div ng-messages-include="templates/error-messages/general.html"></div>
+				  	</div>-->
+				</div>
+
+				<div class="padding">
+					<label class="item item-input">
+					    <input 	type="text" 
+					    		name="lastname"
+					    		ng-model="userform.lastname"
+					    		required
+					    		placeholder="Last name">
+					</label>
+					<div class="error">{{error.lastname}}</div>
+				  	<!--<div class="error" ng-show="registeruser.$submitted" ng-messages="registeruser.lastname.$error" role="alert">
+					    <div ng-message="minlength, maxlength">
+					      Last name must be between 3 and 20 characters long
+					    </div>
+					    <div ng-messages-include="templates/error-messages/general.html"></div>
+			  		</div>-->
+				</div>
+
+				<div class="padding">
+					<label class="item item-input">
+					    <input 	type="email"
+					    		name="email"
+					    		ng-model="userform.email" 
+					    		required
+					    		placeholder="E-Mail"
+					    		autocomplete="off">
+					</label>
+					<div class="error">{{error.email}}</div>
+					<!--<div class="error" ng-show="registeruser.$submitted" ng-messages="registeruser.email.$error" role="alert">
+					   <div ng-messages-include="templates/error-messages/general.html"></div>
+				  	</div>-->
+				</div>
+
+				<div class="padding">
+					<label class="item item-input">
+					    <input 	type="text" 
+					    		name="password" 
+					    		ng-model="userform.password"
+					    		required
+					    		placeholder="Password">
+					</label>
+					<div class="error">{{error.password}}</div>
+
+				  	<!--<div class="error" ng-show="registeruser.$submitted" ng-messages="registeruser.password.$error" role="alert">
+					    <div ng-messages-include="templates/error-messages/general.html"></div>
+					    <div ng-message="minlength, maxlength">
+					      Password must be between 6 and 15 characters long
+					    </div>
+				  	</div>-->
+				</div>
+
+
+				<div class="padding">
+					By clicking "Register", you agree to our <a href="#">terms and conditions</a>.
+				</div>
+
+
+			</div>		  
+
+			<div class="padding">
+			  	<button type="submit" class="button button-small button-block button-assertive font-bold">
+				  Register
+				</button>
+			</div>
+
+			<div  class="{{register.alert.type}}"> {{register.alert.message}} </div>
+
+		</form>
+
+		</div>
+		</div>
+
+
+		
+
+	</ion-content>
+</ion-view>
+
+

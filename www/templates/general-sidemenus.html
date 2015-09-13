@@ -1,0 +1,111 @@
+<ion-side-menus>
+  
+  <ion-side-menu-content ng-controller="SidemenuCtrl">
+    <ion-nav-bar class="bar bar-dark">
+      <ion-nav-back-button class="">
+      </ion-nav-back-button>
+    
+      <ion-nav-buttons side="left">
+        <button class="button button-icon ion-navicon" ng-click="showLeftMenu()">
+        </button>
+      </ion-nav-buttons>
+
+      <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear icon ion-filing" ng-click="showRightMenu()">
+        </button>
+      </ion-nav-buttons>
+
+    </ion-nav-bar>
+
+    <ion-nav-view animation="slide-left-right" name="sidemenu"></ion-nav-view>
+
+  </ion-side-menu-content> 
+  
+  <ion-side-menu side="left">
+
+    <ion-header-bar class="bar bar-header bar-dark">
+      <h1 class="title" menu-close>Menu</h1>
+    </ion-header-bar>
+
+    <ion-content has-header="true">
+      <div class="list">
+        <div>
+          <a class="item  item-icon-left" menu-close nav-clear href="#/sidemenu/tab/home"><i class="icon ion-ios-home-outline"></i> Home </a>
+        </div>
+
+
+        <div>
+          <a class="item  item-icon-left" menu-close nav-clear href="#/sidemenu/tab/home"><i class="icon ion-ios-paper-outline"></i> Feeds </a>
+        </div>
+
+        <div>
+          <a class="item item-icon-left" menu-close nav-clear href="#/sidemenu/rlut/logout" ng-show="isLoggedIn"><i class="icon ion-log-out"></i> Logout</a>
+          
+          <a class="item item-icon-left" menu-close nav-clear href="#/sidemenu/rlut/login" ng-show="!isLoggedIn"><i class="icon ion-log-in"></i> Login | Register</a>
+        </div>
+
+        <div>
+          <a class="item  item-icon-left" menu-close nav-clear href="#/sidemenu/tab/home"><i class="icon ion-android-settings"></i> Settings </a>
+        </div>
+
+        <div class="item  item-divider">
+          Account
+        </div>
+
+        <div>
+          <a class="item item-icon-left" menu-close nav-clear href="#/settings">
+            <i class="icon ion-ios-heart-outline"></i> Wish List <span class="badge badge-assertive">3</span>
+          </a>
+        </div>
+
+        <div>
+          <a class="item item-icon-left" menu-close nav-clear href="#/settings">
+            <i class="icon ion-android-list"></i> My Orders
+          </a>
+        </div>
+
+        <div>
+          <a class="item item-icon-left" menu-close nav-clear href="#/settings">
+            <i class="icon ion-ios-email-outline"></i> Message Center <span class="badge badge-assertive">5</span>
+          </a>
+        </div>
+
+        <div>
+          <a class="item item-icon-left" menu-close nav-clear href="#/settings">
+            <i class="icon ion-ios-person-outline"></i> My Profile
+          </a>
+        </div>
+
+        <div>
+          <a class="item item-icon-left" menu-close nav-clear href="#/sidemenu/secure/mystore">
+            <i class="icon ion-bag"></i> My Store
+          </a>
+        </div>
+      </div>
+    </ion-content>
+  </ion-side-menu>
+
+  <ion-side-menu side="right">
+    <ion-header-bar class="bar bar-header bar-positive">
+      <h1 class="title">Shop by Departments</h1>
+    </ion-header-bar>
+    <ion-content class="">
+    <!-- accordion -->
+        <div ng-repeat="group in groups.data">
+
+          <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+              <i class="icon" ng-class="isGroupShown(group) ? 'ion-chevron-down' : 'ion-android-add'"></i>
+            {{group.name}}
+          </ion-item>
+
+          <ion-item class="item-accordion" ng-repeat="item in group.subcategory.data" ng-show="isGroupShown(group)">
+            <a class="no-effect" href="#">
+              <i class="icon ion-email"></i> &nbsp; {{item.name}}
+            </a>
+          </ion-item>
+
+        </div>
+    </ion-content>
+  </ion-side-menu>
+  
+</ion-side-menus>

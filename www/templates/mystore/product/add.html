@@ -1,0 +1,251 @@
+<ion-view view-title="Add Product">
+  	<ion-content>
+
+	  	<div ng-if="selectType">
+	  		<div class="item">
+			    <div> Select product type</div>
+			</div>
+
+		  	<div class="list list-inset">
+		  		<label class="item item-input item-select">
+					<div class="input-label">Type</div>
+				    <select ng-model="producttype" ng-change="producttypeFunc(producttype)">
+				    	<option value=""> -- Service or Item -- </option>
+				    	<option value="item">Item</option>
+				    	<option value="service">Service</option>
+				    </select>
+				</label>
+			</div>
+	  	</div>
+
+		<div ng-if="product == 'item'">
+			<div ng-if="show.create == 'descriptive'">
+				<form name="create.descriptive" novalidate id="createdescriptive">
+					<div class="item">
+				    	<div><i class="ion-ios-plus-empty"></i> Add a descriptive title</div>
+					</div>
+
+					<div class="list list-inset">
+						<label class="item item-input">
+							<span class="input-label">Name: <span class="assertive">*</span></span>
+							    <input 	type="text"
+							    		name="name"
+							    		ng-model="item.name"
+							    		required>
+						</label>
+						<div class="error">{{error.name}}</div>
+
+
+						<label class="item item-input">
+							<span class="input-label">Brand: <span class="assertive">*</span></span>
+							    <input 	type="text"
+							    		name="brand"
+							    		ng-model="item.brand">
+						</label>
+						<div class="error">{{error.brand}}</div>
+
+						<label class="item">
+							<span class="input-label">Description: <span class="assertive">*</span></span>
+							    <textarea name="description"
+							    		ng-model="item.description"
+							    		required
+							    		class="full-width"
+							    		id="desc"
+							    		ng-keyup="expandText()"
+										ng-keydown="expandText()"></textarea>
+						</label>
+						<div class="error">{{error.description}}</div>
+
+						 <button class="button button-block button-balanced" ng-click="createdescriptive()">
+							  Next: Category <i class="ion-chevron-right"></i>
+						</button>
+					</div>
+				</form>
+			</div>
+
+			<div ng-if="show.create == 'itemcategory'">
+				<form  novalidate id="createitemcategory">
+					<div class="item">
+				    	<div><i class="ion-ios-plus-empty"></i> Select Item category</div>
+					</div>
+
+					<div class="list list-inset">
+						<label class="item item-input item-select">
+							<div class="input-label">
+							  Category: <span class="assertive">*</span>
+							</div>
+
+							<select name="category" ng-model="item.category_id" ng-options="option.id as option.name for option in options1" ng-change="getOptions2(item.category_id)">
+							</select>
+						</label>
+						<div class="error">{{error.category}}</div>
+
+						<label class="item item-input item-select">
+							<div class="input-label">
+							  Sub-category: <span class="assertive">*</span>
+							</div>
+							
+							<select name="subcategory" ng-model="item.subcategory_id" ng-options="option.id as option.name for option in options2" ng-change="getSubcategoryfiltergroup(item.subcategory_id)">
+							</select>
+						</label>
+						<div class="error">{{error.subcategory}}</div>
+
+						<div ng-if="show.xfilters == 'true'">
+							<div class="item item-divider"> Other properties </div>
+
+							<div ng-repeat="fg in fgs">
+								<label class="item item-input item-select">
+								<div class="input-label">
+								  {{fg.name}}: <span class="assertive">*</span>
+								</div>
+									
+								<select name="subcategory" ng-model="item.properties[fg.name][fg.id]" ng-options="option.id as option.name for option in fg.subcategoryfilter.data">
+								</select>
+								</label>
+							</div>
+						</div>
+
+						<div class="padding-top">
+							<button class="button button-stable" ng-click="showdescriptive()">
+								<i class="ion-chevron-left"></i> Back
+							</button>
+							<button class="button button-balanced pull-right" ng-click="createitemcategory()">
+								  Next: Listing & Condition <i class="ion-chevron-right"></i>
+							</button>
+						</div>
+
+					</div>
+				</form>
+			</div>
+
+			<div ng-if="show.create == 'itemlistingandcondition'">
+				<form ng-submit="createitemlistingandcondition()" novalidate id="createitemcategory">
+					<div class="item">
+				    	<div><i class="ion-ios-plus-empty"></i> Item condition & Listing duration</div>
+					</div>
+
+					<div class="list list-inset">
+						<label class="item ">
+							<div class="input-label">
+							  Select condition: <span class="assertive">*</span>
+							</div>
+
+							<ion-radio ng-model="item.condition" ng-value="'new'">New</ion-radio>
+							<ion-radio ng-model="item.condition" ng-value="'used'">Used</ion-radio>
+							<ion-radio ng-model="item.condition" ng-value="'refurbished'">Refurbished</ion-radio>
+
+						</label>
+						<div class="error">{{error.condition}}</div>
+
+						<label class="item item-input item-select">
+							<span class="input-label">
+							  Listing Days: <span class="assertive">*</span>
+							</span>
+							
+							<select ng-required name="listingdays" ng-model="item.listingdays" ng-options="index for index in selectOptions.listingdays">
+							</select>
+						</label>
+						<div class="error">{{error.listingdays}}</div>
+
+						<label class="item item-input">
+							<span class="input-label">Quantity</span>
+							    <input 	type="number"
+							    		name="quantity"
+							    		initial-value=''
+							    		ng-model="item.quantity"
+							    		>
+						</label>
+						<div class="error">{{error.quantity}}</div>
+
+						<div class="padding-top">
+							<button class="button button-stable" ng-click="createdescriptive()">
+								<i class="ion-chevron-left"></i> Back
+							</button>
+							<button class="button button-balanced pull-right">
+							  Next: Price & Deals <i class="ion-chevron-right"></i>
+							</button>
+						</div>
+
+					</div>
+				</form>
+			</div>
+
+			<div ng-if="show.create == 'itempriceanddeal'">
+				<form ng-submit="createitemlistingandcondition()"  novalidate id="createitemcategory">
+					<div class="item">
+				    	<div><i class="ion-ios-plus-empty"></i> Pricing & Deal</div>
+					</div>
+
+					<div class="list list-inset">
+
+						<label class="item item-input">
+							<span class="input-label">
+								Price <span class="assertive">*</span>
+							</span>
+							    <input 	type="number"
+							    		name="price"
+							    		ng-required
+							    		ng-model="item.price"
+							    		>
+						</label>
+						<div class="error">{{error.price}}</div>
+
+						<label class="item item-input">
+							<span class="input-label">
+								Deal Price:
+							</span>
+							    <input 	type="number"
+							    		name="dealprice"
+							    		ng-model="item.dealprice"
+							    		>
+						</label>
+						<div class="error">{{error.dealprice}}</div>
+
+						  <div class="item item-divider">
+						    Deal date range
+						  </div>
+						<label class="item item-input">
+							<span class="input-label">
+								From:
+							</span>
+							    <input 	type="date"
+							    		name="dealfrom"
+							    		ng-model="item.dealfrom"
+							    		>
+						</label>
+						<div class="error">{{error.dealfrom}}</div>
+
+						<label class="item item-input">
+							<span class="input-label">
+								To:
+							</span>
+							    <input 	type="date"
+							    		name="dealto"
+							    		ng-model="item.dealto"
+							    		>
+						</label>
+						<div class="error">{{error.dealto}}</div>
+
+						<div class="padding-top">
+							<button class="button button-stable" ng-click="createitemcategory()">
+								<i class="ion-chevron-left"></i> Back
+							</button>
+							<button class="button button-balanced pull-right">
+							  Next: Item gallery <i class="ion-chevron-right"></i>
+							</button>
+						</div>
+
+					</div>
+				</form>
+			</div>
+
+			<div ng-if="show.create ==  'itemgallery'">
+				<form ng-submit="createitemgallery()" novalidate id="itemgalleryform">
+					
+				</form>
+			</div>
+		</div>	
+
+
+	</ion-content>
+</ion-view>

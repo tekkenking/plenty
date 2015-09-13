@@ -1,0 +1,23 @@
+<ion-view view-title="My Store">
+	<ion-content>
+		<ion-list>
+
+			<div ng-if="haveStore === null"></div>
+
+			<div ng-if="haveStore === false">
+				<a ui-sref="sidemenu.secure.mystorecreate">Create Store</a>
+			</div>
+
+			<div ng-if="haveStore === true">
+				<div> {{store.name}} </div>
+				<div> {{store.country}} </div>
+				<div> {{store.state}} </div>
+				<div> {{store.city}} </div>
+				<div ng-show="store.logo"> No logo </div>
+
+				<a ui-sref="storemenu.secure.addproduct"> Add product </a>
+			</div>
+
+    	</ion-list>
+	</ion-content>
+</ion-view>

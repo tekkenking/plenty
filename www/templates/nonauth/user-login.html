@@ -1,0 +1,68 @@
+
+<ion-view view-title="">
+  <ion-content>
+
+<div class="card">
+
+  <div class="item">
+    <div class="pull-left font-md"><i class="ion-log-in"></i> Login</div> 
+    <a href="#" class="pull-right link">Forgot password?</a>
+  </div>
+  <div class="item item-text-wrap">
+
+  		<form name="loginuser" ng-submit="auth.process(userform, loginuser)" novalidate="" id="loginuser">
+			<div class="list">
+				<div class="padding">
+					<label class="item item-input">
+					    <input 	type="email"
+					    		name="email"
+					    		ng-model="userform.email" 
+					    		required
+					    		placeholder="E-Mail">
+					</label>
+
+					<div class="error" ng-show="loginuser.$submitted" ng-messages="loginuser.email.$error" role="alert">
+					    <div ng-message="required">E-Mail is required</div>
+					    <div ng-message="email">
+					      E-Mail must be valid
+					    </div>
+				  	</div>
+				</div>
+
+				<div class="padding">
+					<label class="item item-input">
+					    <input 	type="password" 
+					    		name="password" 
+					    		ng-model="userform.password" 
+					    		ng-minlength="4"
+					    		ng-maxlength="15"
+					    		required
+					    		placeholder="Password">
+					</label>
+
+
+				  	<div class="error" ng-show="loginuser.$submitted" ng-messages="loginuser.password.$error" role="alert">
+					    <div ng-message="required">Password is required</div>
+					    <div ng-message="minlength, maxlength">
+					      Password must be between 6 and 15 characters long
+					    </div>
+				  	</div>
+				</div>
+
+			</div>		  
+
+			<div>
+			  	<button type="submit" class="button button-small button-outline button-block button-calm font-bold">
+				  Login
+				</button>
+			</div>
+
+			<div  class="{{auth.alert}}"> {{auth.message}} </div>
+
+		</form>
+
+		</div>
+		</div>
+
+	</ion-content>
+</ion-view>

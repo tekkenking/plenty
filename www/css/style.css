@@ -1,0 +1,256 @@
+/* Empty. Add your own CSS if you like */
+
+.bar-header .item-input-inset > label.item-input-wrapper{
+	background: #fff;
+	border-radius: 2px;
+}
+
+form .error{
+	color: red;
+}
+
+.header-item span.badge{
+    border-radius: 20%;
+    font-size: 12px;
+    padding: 0px 2px;
+    position: absolute;
+    color: #f8f8f3;
+}
+
+.header-item span.badge-right{
+	right: 0;
+}
+
+.header-item span.badge-left{
+	left: 0;
+}
+
+.font-lg{
+	font-size:25px;
+}
+
+.font-md{
+	font-size:20px;
+}
+
+.font-sm{
+	font-size:15px;
+}
+
+.font-xs{
+	font-size:13px;
+}
+
+.font-bold{
+	font-weight: bold !important;
+}
+
+.old-price{
+	text-decoration: line-through;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pull-right{
+	float:right;
+}
+
+.pull-right:after{
+	clear: both;
+}
+
+.card .item-avatar > img{
+	border-radius: 0;
+    left: 4px;
+    max-height: 65px;
+    max-width: 65px;
+    top: 4px
+}
+
+.card .item-avatar > .item-text{
+	margin-left: 5px; 
+}
+
+.card .item-state{
+	position:absolute; 
+	display:inline-block; 
+	right:15px;
+	top: 0px;
+	text-transform: capitalize;
+}
+
+.card .item-body{
+	padding: 0;
+}
+
+.card .item-body .item-text{
+	padding: 10px 16px;
+}
+
+.card .item-text p, .card .item-text div{
+	margin-top: 10px;
+  	margin-bottom: 5px;
+}
+
+.card  .item-text .item-title{
+	font-weight: bold;
+}
+
+.card  .item-text .item-title{
+	margin-top: 0;
+}
+
+.alert {
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d !important;
+}
+
+.alert-info {
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    color: #31708f !important;
+}
+
+.alert-warning {
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+    color: #8a6d3b !important;
+}
+
+.alert-danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442 !important;
+}
+
+.label-default {
+    background-color: #777777;
+}
+.label {
+    border-radius: 0.25em;
+    color: #ffffff;
+    display: inline;
+    font-size: 85%;
+    line-height: 1;
+    padding: 0.2em 0.6em 0.3em;
+    text-align: center;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+.label-primary {
+    background-color: #428bca;
+}
+
+.label-transparent {
+	background: #777777;
+    background-color: rgba(0,0,0, 0.5);
+}
+
+.menu-dark, .menu-dark .item{
+	background: #444444;
+	border-color: #2c2c2c;
+	color : #fff;
+}
+
+.bar.bar-transparent{
+	background: rgba(255,255,255,0.66) !important;
+	box-shadow: 0px 0px 1px #999;
+}
+
+.scroll-content {
+      overflow: visible !important;
+    }
+
+.box{
+	height: 300px;
+}
+
+.pink{
+	background: pink;
+}
+
+.yellow{
+	background: yellow;
+}
+
+.blue{
+	background: blue;
+}
+
+.stale{
+	color: #616161;
+}
+
+.display-inline{
+	display: inline;
+}
+
+.link, .link:active{
+	text-decoration: none;
+	color: steelblue;
+}
+
+.text-white{
+	color: #fff;
+}
+
+.item-select select{
+	padding: 13px 48px 12px 16px;
+	direction: ltr;
+}
+
+.list-image{
+	width: 100px;
+	height: 100px;
+}
+
+.feeds{
+	line-height: 20px;
+}
+
+.list.feeds{
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.muted{
+	color: #999;
+}
+
+.feed-cart-size{
+	font-size: 25px;
+}
+
+/* accordion styles */
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+
+a.no-effect{
+	text-decoration: none;
+	color: #333;
+}
+
+.full-width{
+	width: 100% !important;
+}
